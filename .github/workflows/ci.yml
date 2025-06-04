@@ -18,7 +18,6 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-
     - name: Grant mvnw permission
       run: chmod +x ./mvnw
 
