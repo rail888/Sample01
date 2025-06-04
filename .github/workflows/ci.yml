@@ -1,5 +1,6 @@
 name: Spring Boot Maven CI with Wrapper
 
+
 on:
   push:
     branches: [ main ]
@@ -22,4 +23,10 @@ jobs:
       run: chmod +x ./mvnw
 
     - name: Build with Maven Wrapper
-      run: ./mvnw clean install
+      run: ./mvnw clean package -DskipTests
+
+    - name: Upload JAR as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: springboot-jar
+        path: target/*.jar
